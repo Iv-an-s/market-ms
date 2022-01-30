@@ -15,12 +15,6 @@ public class FrontController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Bean
-    @LoadBalanced
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-
     @GetMapping("/api/v1/products")
     public List<ProductDto> getProductListFromProductService() {
         List<ProductDto> productDtoList = restTemplate.getForObject("http://product-service/api/v1/products", List.class);
