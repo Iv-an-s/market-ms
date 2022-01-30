@@ -18,10 +18,10 @@ import java.util.stream.Collectors;
 public class ProductController {
     private final ProductRepository productRepository;
 
-    private static final Function<Product, ProductDto> mapper = p -> new ProductDto(p.getId(), p.getTitle(),p.getPrice());
+    private static final Function<Product, ProductDto> mapper = p -> new ProductDto(p.getId(), p.getTitle(), p.getPrice());
 
     @GetMapping
-    public List<ProductDto> findAll(){
+    public List<ProductDto> findAll() {
         return productRepository.findAll().stream().map(mapper).collect(Collectors.toList());
     }
 }
